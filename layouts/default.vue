@@ -8,7 +8,15 @@
 </template>
 
 <script lang="ts" setup>
+const colorMode = useColorMode()
+
 useSeoMeta({
   titleTemplate: "%s - Norton Almeida",
 })
 </script>
+
+<style>
+body {
+  @apply bg-white dark:bg-gray-800 text-gray-700 dark:text-white;
+}
+</style>
