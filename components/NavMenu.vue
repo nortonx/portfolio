@@ -1,15 +1,20 @@
 <template>
-  <header class="flex justify-between items-center bg-gray-100 p-4">
-    <div>
-      <nuxt-link to="/" class="text-xl font-semibold link">Norton Almeida</nuxt-link>
+  <header class="flex justify-between items-center bg-gray-100 dark:bg-gray-800 p-4">
+    <div class="flex items-center space-x-12">
+      <div>
+        <nuxt-link to="/" class="text-xl font-semibold link">Norton Almeida</nuxt-link>
+      </div>
+      <nav class="font-mono">
+        <ul class="flex space-x-4">
+          <li v-for="link in links" :key="link.url">
+            <nuxt-link :to="link.url" class="link">{{ link.name }}</nuxt-link>
+          </li>
+        </ul>
+      </nav>
     </div>
-    <nav class="font-mono">
-      <ul class="flex space-x-4">
-        <li v-for="link in links" :key="link.url">
-          <nuxt-link :to="link.url" class="link">{{ link.name }}</nuxt-link>
-        </li>
-      </ul>
-    </nav>
+    <client-only>
+      <ColorModeSelector />
+    </client-only>
   </header>
 </template>
 
@@ -25,6 +30,6 @@ const links = [
 
 <style scoped>
   .link {
-    @apply p-2 hover:bg-gray-200
+    @apply p-2 hover:bg-gray-200 text-gray-700 dark:text-white hover:dark:bg-gray-700;
   }
 </style>
